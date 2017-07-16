@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Mar, 2014 8:45:54 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Payment" table="payment" catalog="jewellery">
+        <id name="paymentid" type="java.lang.Integer">
+            <column name="paymentid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="members" class="mappings.Members" fetch="select">
+            <column name="memberid" />
+        </many-to-one>
+        <many-to-one name="paymentmodes" class="mappings.Paymentmodes" fetch="select">
+            <column name="paymentmode" />
+        </many-to-one>
+        <property name="paidamount" type="java.lang.Double">
+            <column name="paidamount" precision="22" scale="0" />
+        </property>
+        <property name="paiddate" type="timestamp">
+            <column name="paiddate" length="19" />
+        </property>
+        <property name="attachments" type="string">
+            <column name="attachments" length="50" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="50" />
+        </property>
+        <property name="canceled" type="boolean">
+            <column name="canceled" not-null="true" />
+        </property>
+        <set name="paymentdetailses" table="paymentdetails" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key column="paymentid"/>
+            <many-to-many column="paymentdetailsid" unique="true" class="mappings.Paymentdetails"/>
+        </set>
+    </class>
+</hibernate-mapping>

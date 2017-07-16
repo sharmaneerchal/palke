@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Mar, 2014 8:45:54 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Groups" table="groups" catalog="jewellery">
+        <id name="groupid" type="java.lang.Integer">
+            <column name="groupid" />
+            <generator class="identity" />
+        </id>
+        <property name="groupname" type="string">
+            <column name="groupname" length="500" not-null="true" />
+        </property>
+        <property name="noofmembers" type="int">
+            <column name="noofmembers" not-null="true" />
+        </property>
+        <property name="noofinstallment" type="int">
+            <column name="noofinstallment" not-null="true" />
+        </property>
+        <property name="startdate" type="timestamp">
+            <column name="startdate" length="19" not-null="true" />
+        </property>
+        <property name="enddate" type="timestamp">
+            <column name="enddate" length="19" not-null="true" />
+        </property>
+        <property name="actualstartdate" type="timestamp">
+            <column name="actualstartdate" length="19" not-null="false" />
+        </property>
+        <property name="installmentamount" type="double">
+            <column name="installmentamount" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="bonousamount" type="double">
+            <column name="bonousamount" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="createddate" type="timestamp">
+            <column name="createddate" length="19" not-null="true" />
+        </property>
+        <property name="createdby" type="int">
+            <column name="Createdby" not-null="true" />
+        </property>
+        <set name="groupdrawdetailses" table="groupdrawdetails" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key column="groupid"/>
+            <many-to-many column="groupdrawdetailsid" unique="true" class="mappings.Groupdrawdetails" />
+        </set>
+        <set name="memberses" table="members" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="groupid" not-null="true" />
+            </key>
+            <one-to-many class="mappings.Members" />
+        </set>
+    </class>
+</hibernate-mapping>

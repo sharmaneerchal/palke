@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Jul, 2017 4:43:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mappings.Workersmemo" table="workersmemo" catalog="jewellery" optimistic-lock="version">
+        <id name="workersmemoid" type="java.lang.Integer">
+            <column name="workersmemoid" />
+            <generator class="identity" />
+        </id>
+        <property name="workermemono" type="java.lang.Integer">
+            <column name="workermemono" />
+        </property>
+        <property name="orderno" type="string">
+            <column name="orderno" length="50" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" />
+        </property>
+        <property name="createddate" type="timestamp">
+            <column name="createddate" length="19" />
+        </property>
+        <property name="employee" type="string">
+            <column name="employee" length="50" />
+        </property>
+        <property name="goldweight" type="java.lang.Double">
+            <column name="goldweight" precision="22" scale="0" />
+        </property>
+        <property name="silverweight" type="java.lang.Double">
+            <column name="silverweight" precision="22" scale="0" />
+        </property>
+        <property name="stoneweight" type="java.lang.Double">
+            <column name="stoneweight" precision="22" scale="0" />
+        </property>
+        <property name="diamondweight" type="java.lang.Double">
+            <column name="diamondweight" precision="22" scale="0" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="500" />
+        </property>
+        <property name="jewel" type="string">
+            <column name="jewel" length="500" />
+        </property>
+        <property name="readydate" type="timestamp">
+            <column name="readydate" length="19" />
+        </property>
+        <property name="netweight" type="java.lang.Double">
+            <column name="netweight" precision="22" scale="0" />
+        </property>
+        <property name="size" type="string">
+            <column name="size" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Jul, 2017 4:43:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mappings.Ornamentstock" table="ornamentstock" catalog="jewellery" optimistic-lock="version">
+        <id name="ornamentstockid" type="java.lang.Integer">
+            <column name="ornamentstockid" />
+            <generator class="identity" />
+        </id>
+        <property name="ornamentstockno" type="string">
+            <column name="ornamentstockno" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="50" />
+        </property>
+        <property name="itemid" type="java.lang.Integer">
+            <column name="itemid" />
+        </property>
+        <property name="memono" type="string">
+            <column name="memono" length="50" />
+        </property>
+        <property name="memoid" type="java.lang.Integer">
+            <column name="memoid" />
+        </property>
+        <property name="grossweight" type="java.lang.Double">
+            <column name="grossweight" precision="22" scale="0" />
+        </property>
+        <property name="goldweight" type="java.lang.Double">
+            <column name="goldweight" precision="22" scale="0" />
+        </property>
+        <property name="stoneweight" type="java.lang.Double">
+            <column name="stoneweight" precision="22" scale="0" />
+        </property>
+        <property name="stonetype" type="string">
+            <column name="stonetype" length="100" />
+        </property>
+        <property name="netweight" type="java.lang.Double">
+            <column name="netweight" precision="22" scale="0" />
+        </property>
+        <property name="wastage" type="java.lang.Double">
+            <column name="wastage" precision="22" scale="0" />
+        </property>
+        <property name="totalglodused" type="java.lang.Double">
+            <column name="totalglodused" precision="22" scale="0" />
+        </property>
+        <property name="insertdate" type="timestamp">
+            <column name="insertdate" length="19" />
+        </property>
+        <property name="revgrossweight" type="java.lang.Double">
+            <column name="revgrossweight" precision="22" scale="0" />
+        </property>
+        <property name="revnetweight" type="java.lang.Double">
+            <column name="revnetweight" precision="22" scale="0" />
+        </property>
+        <property name="revwastage" type="java.lang.Double">
+            <column name="revwastage" precision="22" scale="0" />
+        </property>
+        <property name="revtotalglodused" type="java.lang.Double">
+            <column name="revtotalglodused" precision="22" scale="0" />
+        </property>
+        <property name="sold" type="boolean">
+            <column name="sold" />
+        </property>
+        <property name="transfered" type="boolean">
+            <column name="transfered" />
+        </property>
+    </class>
+</hibernate-mapping>

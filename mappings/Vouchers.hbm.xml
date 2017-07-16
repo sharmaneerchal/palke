@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Apr, 2015 11:41:55 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Vouchers" table="vouchers" catalog="jewellery">
+        <id name="voucherid" type="java.lang.Integer">
+            <column name="voucherid" />
+            <generator class="identity" />
+        </id>
+        <property name="voucherno" type="string">
+            <column name="voucherno" length="50" />
+        </property>
+        <property name="voucherdate" type="timestamp">
+            <column name="voucherdate" length="19" />
+        </property>
+        <property name="amount" type="string">
+            <column name="amount" length="500"/>
+        </property>
+        <property name="weight" type="java.lang.Double">
+            <column name="weight" precision="22" scale="0" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="500" />
+        </property>
+        <property name="vouchertype" type="string">
+            <column name="vouchertype" length="500" />
+        </property>
+        <property name="vouchercategory" type="string">
+            <column name="vouchercategory" length="500" />
+        </property>
+        <property name="createddate" type="timestamp">
+            <column name="createddate" length="19" />
+        </property>
+        <property name="updateddate" type="timestamp">
+            <column name="updateddate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

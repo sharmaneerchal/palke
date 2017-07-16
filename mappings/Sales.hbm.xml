@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Dec, 2015 9:51:45 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Sales" table="sales" catalog="jewellery">
+        <id name="salesid" type="java.lang.Integer">
+            <column name="salesid" />
+            <generator class="identity" />
+        </id>
+        <property name="billno" type="string">
+            <column name="billno" length="50" />
+        </property>
+        <property name="billdate" type="string">
+            <column name="billdate" length="50" />
+        </property>
+        <property name="billamount" type="java.lang.Double">
+            <column name="billamount" precision="22" scale="0" />
+        </property>
+        <property name="discounts" type="java.lang.Double">
+            <column name="discounts" precision="22" scale="0" />
+        </property>
+        <property name="tax" type="java.lang.Double">
+            <column name="tax" precision="22" scale="0" />
+        </property>
+        <property name="jewelcodes" type="string">
+            <column name="jewelcodes" length="50" />
+        </property>
+        <property name="insertdate" type="timestamp">
+            <column name="insertdate" length="19" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

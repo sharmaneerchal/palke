@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Apr, 2015 10:19:55 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Goldstock" table="goldstock" catalog="jewellery">
+        <id name="goldstockid" type="java.lang.Integer">
+            <column name="goldstockid" />
+            <generator class="identity" />
+        </id>
+        <property name="goldstockno" type="string">
+            <column name="goldstockno" length="50" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="50" />
+        </property>
+        <property name="vouchertype" type="string">
+            <column name="vouchertype" length="50" />
+        </property>
+        <property name="voucherdate" type="timestamp">
+            <column name="voucherdate" length="19" />
+        </property>
+        <property name="weight" type="java.lang.Double">
+            <column name="weight" precision="22" scale="0" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="22" scale="0" />
+        </property>
+        <property name="refernceid" type="java.lang.Integer">
+            <column name="refernceid" />
+        </property>
+        <property name="refernceno" type="java.lang.Integer">
+            <column name="refernceno" />
+        </property>
+        <property name="createddate" type="timestamp">
+            <column name="createddate" length="19" />
+        </property>
+        <property name="updateddate" type="timestamp">
+            <column name="updateddate" length="19" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

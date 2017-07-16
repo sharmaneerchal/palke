@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 May, 2014 8:09:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Groupdrawdetails" table="groupdrawdetails" catalog="jewellery">
+        <id name="groupdrawdetailsid" type="java.lang.Integer">
+            <column name="groupdrawdetailsid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="groups" class="mappings.Groups" fetch="select">
+            <column name="groupid" />
+        </many-to-one>
+        <many-to-one name="drawtypes" class="mappings.Drawtypes" fetch="select">
+            <column name="drawtypeid" />
+        </many-to-one>
+        <set name="groupdrawpositionses" table="groupdrawpositions" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key column="groupdrawdetailsid"/>
+            <many-to-many column="groupdrawpositionsid" unique="true" class="mappings.Groupdrawpositions" />
+        </set>
+    </class>
+</hibernate-mapping>

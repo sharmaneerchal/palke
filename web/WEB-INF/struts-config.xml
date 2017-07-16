@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+<form-beans>
+    <form-bean name="loginForm" type="com.myapp.struts.Login.LoginForm"/>
+    <form-bean name="GroupCreationForm" type="com.myapp.struts.group.GroupCreationForm"/>
+    <form-bean name="AddMemberForm" type="com.myapp.struts.member.AddMemberForm"/>  
+    <form-bean name="paymentForm" type="com.myapp.struts.payment.paymentForm"/>
+    <form-bean name="usersettingsForm" type="com.myapp.struts.usersettings.usersettingsForm"/>
+    <form-bean name="dataentryForm" type="com.myapp.struts.dataentry.dataentryForm"/>
+    <form-bean name="paymentsReportsForm" type="com.myapp.struts.report.paymentsReportsForm"/>
+    <form-bean name="transactionForm" type="com.myapp.struts.transaction.transactionForm"/>
+    <form-bean name="StockForm" type="com.myapp.struts.stock.StockForm"/>
+    <form-bean name="VouchersForm" type="com.myapp.struts.vouchers.VouchersForm"/>
+    <form-bean name="WorkersMemoForm" type="com.myapp.struts.workersmemo.WorkersMemoActionForm"/>
+    <form-bean name="TransactionReportForm" type="com.myapp.struts.transactionreport.TransactionReportForm"/>
+    <form-bean name="MemoAcceptForm" type="com.myapp.struts.memoaccept.MemoAcceptForm"/>
+    <form-bean name="MemoReportForm" type="com.myapp.struts.memoreport.MemoReportForm"/>
+    <form-bean name="MasterDataForm" type="com.myapp.struts.masters.MasterDataForm"/>
+    <form-bean name="SalesForm" type="com.myapp.struts.sales.SalesForm"/>
+    <form-bean name="MemoSettlementForm" type="com.myapp.struts.settlement.MemoSettlementForm"/>
+  
+</form-beans>
+    
+<global-exceptions>
+    <exception
+        key="error.global.mesage"
+        type="500" 
+        path="/jsp/common/login.jsp" />     
+</global-exceptions>
+
+<global-forwards>
+    <forward name="exp"  path="/jsp/common/login.jsp"/>
+</global-forwards>
+
+<action-mappings>
+    <action path="/logins"
+                 type="com.myapp.struts.Login.LoginAction"
+                 name="loginForm"               
+                 input="/jsp/common/login.jsp"
+                 scope="session">
+        <forward name="display" path="/jsp/common/landingpage.jsp" />
+        <forward name="failure" path="/jsp/common/login.jsp" />
+    </action>
+    <action path="/logout"
+                 type="com.myapp.struts.Logout.LogoutAction"
+                 name="logoutForm"
+                 parameter="method"
+                 scope="session">
+        <forward name="display" path="/jsp/common/login.jsp" />
+    </action>
+    <action path="/gohome"
+              type="com.myapp.struts.Login.HomeAction"
+              parameter="method"
+              input="/jsp/common/schemehome.jsp"
+              scope="session">
+        <forward name="display" path="/jsp/common/schemehome.jsp" />
+        <forward name="home" path="/jsp/common/landingpage.jsp" />
+        <forward name="orderhome" path="/jsp/common/orderhome.jsp" />
+    </action>
+    <action path="/creategroup"
+              type="com.myapp.struts.group.GroupCreationAction"
+              name="GroupCreationForm"
+              parameter="method"
+              input="/jsp/scheme/creategroup.jsp"
+              scope="session">
+        <forward name="display" path="/jsp/scheme/creategroup.jsp" />
+    </action>
+    <action path="/addmember"
+              type="com.myapp.struts.member.AddMemberAction"
+              name="AddMemberForm"
+              parameter="method"
+              input="/jsp/scheme/member.jsp"
+              scope="session">
+        <forward name="display" path="/jsp/scheme/member.jsp" />
+    </action>
+    <action path="/usercreation"
+                type="com.myapp.struts.usersettings.usersettingsAction"
+                name="usersettingsForm"
+                parameter="method"
+                input="/jsp/settings/usercreation.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/settings/usercreation.jsp" />
+        <forward name="fail" path="/jsp/common/schemehome.jsp" />
+    </action>
+        
+    <action path="/changepassword"
+                type="com.myapp.struts.usersettings.usersettingsAction"
+                name="usersettingsForm"
+                parameter="method"
+                input="/jsp/settings/changepassword.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/settings/changepassword.jsp"  />
+    </action>
+    <action path="/dataentry"
+                type="com.myapp.struts.dataentry.dataentryAction"
+                name="dataentryForm"
+                parameter="method"
+                input="/jsp/scheme/dataentry.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/scheme/dataentry.jsp" />
+        <forward name="fail" path="/jsp/common/schemehome.jsp" />
+        
+    </action>
+    <action path="/paymentsreports"
+                 type="com.myapp.struts.report.paymentsreportsAction"
+                 name="paymentsReportsForm"
+                 parameter="method"
+                 input="/jsp/reports/paymentsreports.jsp"
+                 scope="session">
+        <forward name="display" path="/jsp/scheme/paymentsreports.jsp" />
+        <forward name="fail" path="/jsp/common/schemehome.jsp" /> 
+                     
+    </action>
+    <action path="/transaction"
+                type="com.myapp.struts.transaction.transactionAction"
+                name="transactionForm"
+                parameter="method"
+                input="/jsp/transaction/transaction.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/scheme/transaction.jsp"/>
+        <forward name="fail" path="/jsp/common/login.jsp" /> 
+                     
+    </action>
+        
+    <action path="/memberaccount"
+                 type="com.myapp.struts.transaction.transactionAction"
+                 name="transactionForm"
+                 parameter="method"
+                 input="/jsp/transaction/memberaccount.jsp"
+                 scope="session">
+        <forward name="display" path="/jsp/scheme/memberaccount.jsp"/>
+        <forward name="fail" path="/jsp/common/schemehome.jsp" /> 
+                     
+    </action>
+      
+  
+    <action path="/vouchers"
+               type="com.myapp.struts.vouchers.VouchersAction"
+               name="VouchersForm"
+               parameter="method"
+               input="/jsp/order/vouchers.jsp"
+               scope="session">
+        <forward name="display" path="/jsp/order/vouchers.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+          <forward name="rvprint" path="/jsp/order/rvPrint.jsp"/>
+          <forward name="pvprint" path="/jsp/order/pvPrint.jsp"/>
+    </action>
+    <action path="/voucherlist"
+                type="com.myapp.struts.vouchers.VouchersAction"
+                name="VouchersForm"
+                parameter="method"
+                input="/jsp/order/voucherList.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/voucherList.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <!-- stock -->
+    <action path="/stock"
+            type="com.myapp.struts.stock.StockAction"
+            name="StockForm"
+            parameter="method"
+            input="/jsp/order/goldstock.jsp"
+            scope="session">
+        <forward name="display" path="/jsp/order/goldstock.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/orstock"
+                type="com.myapp.struts.stock.StockAction"
+                name="StockForm"
+                parameter="method"
+                input="/jsp/order/ornamentstock.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/ornamentstock.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/workmemolist"
+                type="com.myapp.struts.workersmemo.WorkersMemoAction"
+                name="WorkersMemoForm"
+                parameter="method"
+                input="/jsp/order/workersmemoList.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/workersmemoList.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/workmemo"
+                type="com.myapp.struts.workersmemo.WorkersMemoAction"
+                name="WorkersMemoForm"
+                parameter="method"
+                input="/jsp/order/workersmemo.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/workersmemo.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" />
+        <forward name="print" path="/jsp/order/memoissuePrint.jsp" /> 
+    </action>
+    <action path="/transreport"
+                type="com.myapp.struts.transactionreport.TransactionReportAction"
+                name="TransactionReportForm"
+                parameter="method"
+                input="/jsp/order/gs11.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/gs11.jsp"/>
+        <forward name="print" path="/jsp/order/gs11Report.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/gs12"
+                 type="com.myapp.struts.transactionreport.TransactionReportAction"
+                 name="TransactionReportForm"
+                 parameter="method"
+                 input="/jsp/order/gs11.jsp"
+                 scope="session">
+        <forward name="display" path="/jsp/order/gs12.jsp"/>
+        <forward name="print" path="/jsp/order/gs12Report.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/memoaccept"
+                type="com.myapp.struts.memoaccept.MemoAcceptAction"
+                name="MemoAcceptForm"
+                parameter="method"
+                input="/jsp/order/memoaccept.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/memoaccept.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/settlement"
+                type="com.myapp.struts.settlement.MemoSettlementAction"
+                name="MemoSettlementForm"
+                parameter="method"
+                input="/jsp/order/memosettlement.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/memosettlement.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+    <action path="/memoreport"
+                type="com.myapp.struts.memoreport.MemoReportAction"
+                name="MemoReportForm"
+                parameter="method"
+                input="/jsp/order/memoReport.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/memoReport.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+         <forward name="print" path="/jsp/order/memoReportPrintView.jsp"/>
+    </action>
+    <action path="/masterdata"
+                type="com.myapp.struts.masters.MasterDataAction"
+                name="MasterDataForm"
+                parameter="method"
+                input="/jsp/order/masterdata.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/masterdata.jsp"/>
+        <forward name="fail" path="/jsp/common/orderhome.jsp" /> 
+    </action>
+     <action path="/sales"
+                type="com.myapp.struts.sales.SalesAction"
+                name="SalesForm"
+                parameter="method"
+                input="/jsp/order/OrnamentSales.jsp"
+                scope="session">
+        <forward name="display" path="/jsp/order/OrnamentSales.jsp"/>
+        <forward name="fail" path="/jsp/common/OrnamentSales.jsp" /> 
+    </action>
+</action-mappings>
+         
+<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+<message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

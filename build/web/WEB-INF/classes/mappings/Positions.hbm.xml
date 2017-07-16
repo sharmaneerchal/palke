@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Jul, 2017 4:43:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mappings.Positions" table="positions" catalog="jewellery" optimistic-lock="version">
+        <id name="positionid" type="java.lang.Integer">
+            <column name="positionid" />
+            <generator class="identity" />
+        </id>
+        <property name="position" type="string">
+            <column name="position" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

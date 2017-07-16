@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Jul, 2017 4:43:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mappings.Drawdetails" table="drawdetails" catalog="jewellery" optimistic-lock="version">
+        <id name="drawdetailsid" type="java.lang.Integer">
+            <column name="drawdetailsid" />
+            <generator class="identity" />
+        </id>
+        <property name="memberid" type="java.lang.Integer">
+            <column name="memberid" />
+        </property>
+        <property name="term" type="java.lang.Integer">
+            <column name="term" />
+        </property>
+        <property name="drawdate" type="timestamp">
+            <column name="drawdate" length="19" />
+        </property>
+        <property name="drawtypeid" type="java.lang.Integer">
+            <column name="drawtypeid" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

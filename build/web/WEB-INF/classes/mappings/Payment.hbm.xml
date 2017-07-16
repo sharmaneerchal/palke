@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Jul, 2017 4:43:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mappings.Payment" table="payment" catalog="jewellery" optimistic-lock="version">
+        <id name="paymentid" type="java.lang.Integer">
+            <column name="paymentid" />
+            <generator class="identity" />
+        </id>
+        <property name="memberid" type="java.lang.Integer">
+            <column name="memberid" />
+        </property>
+        <property name="paidamount" type="java.lang.Double">
+            <column name="paidamount" precision="22" scale="0" />
+        </property>
+        <property name="paiddate" type="date">
+            <column name="paiddate" length="10" />
+        </property>
+        <property name="paymentmode" type="java.lang.Integer">
+            <column name="paymentmode" />
+        </property>
+        <property name="attachments" type="string">
+            <column name="attachments" length="50" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="500" />
+        </property>
+        <property name="canceled" type="boolean">
+            <column name="canceled" />
+        </property>
+    </class>
+</hibernate-mapping>

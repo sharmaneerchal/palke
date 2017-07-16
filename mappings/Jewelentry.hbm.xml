@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17 Aug, 2015 4:05:03 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Jewelentry" table="jewelentry" catalog="jewellery">
+        <id name="jewelentryid" type="java.lang.Integer">
+            <column name="jewelentryid" />
+            <generator class="identity" />
+        </id>
+        <property name="workermemoid" type="int">
+            <column name="workermemoid" not-null="true" />
+        </property>
+        <property name="workermemono" type="string">
+            <column name="workermemono" length="50" />
+        </property>
+        <property name="itemid" type="java.lang.Integer">
+            <column name="itemid" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="50" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="grossweight" type="java.lang.Double">
+            <column name="grossweight" precision="22" scale="0" />
+        </property>
+        <property name="goldweight" type="java.lang.Double">
+            <column name="goldweight" precision="22" scale="0" />
+        </property>
+        <property name="stoneweight" type="java.lang.Double">
+            <column name="stoneweight" precision="22" scale="0" />
+        </property>
+        <property name="stonetype" type="string">
+            <column name="stonetype" length="100" />
+        </property>
+        <property name="netweight" type="java.lang.Double">
+            <column name="netweight" precision="22" scale="0" />
+        </property>
+        <property name="wastage" type="java.lang.Double">
+            <column name="wastage" precision="22" scale="0" />
+        </property>
+        <property name="totalglodused" type="java.lang.Double">
+            <column name="totalglodused" precision="22" scale="0" />
+        </property>
+        <property name="insertdate" type="date">
+            <column name="insertdate" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

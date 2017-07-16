@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 Mar, 2014 8:45:54 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mappings.Members" table="members" catalog="jewellery">
+        <id name="memberid" type="java.lang.Integer">
+            <column name="memberid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="groups" class="mappings.Groups" fetch="select">
+            <column name="groupid" not-null="true" />
+        </many-to-one>
+        <property name="membername" type="string">
+            <column name="membername" length="500" not-null="true" />
+        </property>
+        <property name="memberaddress" type="string">
+            <column name="memberaddress" length="500" not-null="true" />
+        </property>
+        <property name="contactno" type="string">
+            <column name="contactno" length="500"  not-null="true" />
+        </property>
+        <property name="emailid" type="string">
+            <column name="emailid" length="50" not-null="true" />
+        </property>
+        <property name="completed" type="boolean">
+            <column name="completed" not-null="true" />
+        </property>
+        <property name="joindate" type="timestamp">
+            <column name="joindate" length="19" not-null="true" />
+        </property>
+        <property name="memberno" type="int">
+            <column name="memberno" not-null="true" />
+        </property>
+        
+        <property name="status" type="string">
+            <column name="status" length="50" not-null="true" />
+        </property>
+        
+        <property name="remarks" type="string">
+            <column name="remarks" length="50" not-null="true" />
+        </property>
+        
+        <set name="drawdetailses" table="drawdetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="memberid" />
+            </key>
+            <one-to-many class="mappings.Drawdetails" />
+        </set>
+        <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="memberid" />
+            </key>
+            <one-to-many class="mappings.Payment" />
+        </set>
+    </class>
+</hibernate-mapping>

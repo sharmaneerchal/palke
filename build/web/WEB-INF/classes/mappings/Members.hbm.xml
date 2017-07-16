@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 Jul, 2017 4:43:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mappings.Members" table="members" catalog="jewellery" optimistic-lock="version">
+        <id name="memberid" type="java.lang.Integer">
+            <column name="memberid" />
+            <generator class="identity" />
+        </id>
+        <property name="membername" type="string">
+            <column name="membername" length="500" />
+        </property>
+        <property name="memberaddress" type="string">
+            <column name="memberaddress" length="500" />
+        </property>
+        <property name="contactno" type="string">
+            <column name="contactno" length="500" not-null="true" />
+        </property>
+        <property name="emailid" type="string">
+            <column name="emailid" length="50" not-null="true" />
+        </property>
+        <property name="groupid" type="int">
+            <column name="groupid" not-null="true" />
+        </property>
+        <property name="completed" type="boolean">
+            <column name="completed" not-null="true" />
+        </property>
+        <property name="joindate" type="timestamp">
+            <column name="joindate" length="19" not-null="true" />
+        </property>
+        <property name="memberno" type="int">
+            <column name="memberno" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="50" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>
